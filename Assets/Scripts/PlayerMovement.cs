@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerMovement : MonoBehaviour
 {
     CharacterController charController;
@@ -17,11 +18,16 @@ public class PlayerMovement : MonoBehaviour
     public float h;
     public float v;
 
+    Animator anim;
+
     // Use this for initialization
     void Start()
     {
-        charController = GetComponent<CharacterController>();
         //geting the charicter controller
+        charController = GetComponent<CharacterController>();
+      
+        //geting the animationr from the inspector
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -33,6 +39,10 @@ public class PlayerMovement : MonoBehaviour
         //when the h or v key is held down then it will get the Horizontal and vertical Axis
 
         v = Input.GetAxis("Vertical");
+
+        //sending the animator infomation about  the soeed and direction of the player
+        anim.SetFloat("Speed", v);
+        anim.SetFloat("Direction", h);
 
         Vector3 direction = new Vector3(h, 0, v);
         //useing the infomation from vector 3 to move the player
