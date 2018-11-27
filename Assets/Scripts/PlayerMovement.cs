@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
 
         //sending the animator infomation about  the soeed and direction of the player
         anim.SetFloat("Speed", v);
-        anim.SetFloat("Direction", h);
+        anim.SetFloat("DIrection", h);
 
         Vector3 direction = new Vector3(h, 0, v);
         //useing the infomation from vector 3 to move the player
@@ -52,9 +52,11 @@ public class PlayerMovement : MonoBehaviour
         if (charController.isGrounded)
         //check to see if the charicter is on the ground
         {
-            // if the charicter is grounded, then the player can use the jump button to jump
+            // if the charicter is grounded, then the player can use the jump button to jump. This also starts the the jump animation
             if (Input.GetButtonDown("Jump"))
             {
+
+                anim.SetTrigger("Jump");
                 yVelocity = jumpSpeed;
             }
         }
