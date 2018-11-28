@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerMovement : MonoBehaviour
 {
     CharacterController charController;
@@ -16,12 +17,18 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float movespeed = 5.0f;
     public float h;
     public float v;
+    private bool aim;
+
+    Animator anim;
 
     // Use this for initialization
     void Start()
     {
-        charController = GetComponent<CharacterController>();
         //geting the charicter controller
+        charController = GetComponent<CharacterController>();
+      
+        //geting the animationr from the inspector
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -34,6 +41,11 @@ public class PlayerMovement : MonoBehaviour
 
         v = Input.GetAxis("Vertical");
 
+        //sending the animator infomation about  the soeed and direction of the player
+        anim.SetFloat("Speed", v);
+        anim.SetFloat("DIrection", h);
+        anim.SetBool("Aiming", aim);
+
         Vector3 direction = new Vector3(h, 0, v);
         //useing the infomation from vector 3 to move the player
 
@@ -42,9 +54,11 @@ public class PlayerMovement : MonoBehaviour
         if (charController.isGrounded)
         //check to see if the charicter is on the ground
         {
-            // if the charicter is grounded, then the player can use the jump button to jump
+            // if the charicter is grounded, then the player can use the jump button to jump. This also starts the the jump animation
             if (Input.GetButtonDown("Jump"))
             {
+
+                anim.SetTrigger("Jump");
                 yVelocity = jumpSpeed;
             }
         }
@@ -60,6 +74,14 @@ public class PlayerMovement : MonoBehaviour
         charController.Move(velocity * Time.deltaTime);
         //pasing the colcity on to the character contoller to tell it how fast to move and in which direction
 
+        if (Input.GetMouseButton(1))
+        {
+            aim = true;
+        }
+        else
+        {
+            aim = false;
+        }
      
 
     

@@ -6,11 +6,13 @@ public class shootingScript : MonoBehaviour {
 
     [SerializeField] int damageDelt = 20;
     [SerializeField] LayerMask layerMask;
+    Animator anim;
 
 
 	// Use this for initialization
 	void Start ()
     {
+        anim = GetComponent<Animator>();
         Cursor.lockState = CursorLockMode.Locked; 
         Cursor.visible = false; //hiding the curser by turning its visability to false
         // |=  adds a ignoraycast layer to out layermask list.
@@ -41,7 +43,8 @@ public class shootingScript : MonoBehaviour {
             //creating a local variable to store infomation from the raycast
             RaycastHit hitInfo;
             //the 100 indicates the distance the raycast will shoot adding ~ layermask makes the ray objects in thes layer
-            if(Physics.Raycast (mouseRay, out hitInfo,100, layerMask))
+            anim.SetTrigger("FIre");
+                if(Physics.Raycast (mouseRay, out hitInfo,100, layerMask))
             {
                 print("Hit: " + hitInfo.collider.name);
                 //send the raycast and if the raycast hit something, print out the name to console
