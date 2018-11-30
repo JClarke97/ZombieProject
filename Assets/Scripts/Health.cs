@@ -10,9 +10,12 @@ public class Health : MonoBehaviour
 
     [SerializeField] int CurrentHealth = 0;
 
+    Animator anim;
+
     // Use this for initialization
     void Start()
     {
+        anim = GetComponent<Animator>();
         CurrentHealth = maximumHealth;
         // setting the current health the same as max health at the start of the game
     }
@@ -39,11 +42,21 @@ public class Health : MonoBehaviour
         {
             //if the objects is not nuseing the player tag then add 50 to the players score and destroy the game object
             if (gameObject.tag != "player") //POSIBLE IDEA if (gameObject.tag == "Enemy1")
+                
             {
-                UIManager.updateScore(50);
-                Destroy(gameObject);
-
+                //seting the boolen for dead as true if the Enemey health is 0
+                anim.SetBool("Dead", true);
             }
+            //destroying all the components atached to the enemy
+            UIManager.updateScore(50);
+            Destroy(GetComponent<EnemyNavMovement>());
+            Destroy(GetComponent<UnityEngine.AI.NavMeshAgent>());
+            Destroy(GetComponent<CharacterController>());
+            Destroy(GetComponentInChildren<EnemyAttack>());
+
+            GameManager.amountkilled++;
+
+            
 
         }
 

@@ -34,7 +34,9 @@ public class shootingScript : MonoBehaviour {
         } //checking that the fire button that is configured in unity has been pressed
         if (Input.GetButtonDown("Fire1"))
         {
-            
+            anim.SetTrigger("Fire");
+            GetComponentInChildren<ParticleSystem>().Play();
+
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
             //make a raycast with a line starting from center of camera

@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
         //doing th same here but with the players current Health
         healthBar.value = healthscript.GetHealth();
         healthTxt.text = "Health: " + healthscript.GetHealth();
-
+        
         StartCoroutine("UpdateUI");
 
     }

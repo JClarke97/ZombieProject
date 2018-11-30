@@ -13,19 +13,25 @@ public class EnemyAttack : MonoBehaviour
 
     void OnTriggerStay(Collider other) //when an object is in the trigger this is called
     {
+        
         if (other.tag == "Player" && Time.time >= nextTimeAttackIsAllowed)
         {
-            Health playerHealth = other.GetComponent<Health>(); //other is used to see what is attached to the thing that is inside of the trigger. if this is ture then we get the player health sctipt via get component
+            //other is used to see what is attached to the thing that is inside of the trigger.
+            //if this is ture then we get the player health sctipt via get component
+            Health playerHealth = other.GetComponent<Health>();
+            //triggering the attack animation
+            anim.SetTrigger("Attack");
             playerHealth.Damage(damageDelt); //calling damage fuction
             nextTimeAttackIsAllowed = Time.time + attackDelay; //upadate the time in which the next attack can be used
         }
         
     }
 
-    // Use this for initialization
+    //obtaining the animator
+    Animator anim;
     void Start()
     {
-
+        anim = GetComponentInParent<Animator>();
     }
 
     // Update is called once per frame

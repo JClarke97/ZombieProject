@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour {
     public Text score;
     public Text playerHealthTxt;
     public Text timeTxt;
+    public static int amountkilled;
 
     // Use this for initialization
     void Start() { 
