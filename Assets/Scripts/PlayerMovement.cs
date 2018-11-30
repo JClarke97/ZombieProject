@@ -21,8 +21,6 @@ public class PlayerMovement : MonoBehaviour
 
     Animator anim;
 
-    Animator anim;
-
     // Use this for initialization
     void Start()
     {
@@ -46,10 +44,7 @@ public class PlayerMovement : MonoBehaviour
         //sending the animator infomation about  the soeed and direction of the player
         anim.SetFloat("Speed", v);
         anim.SetFloat("DIrection", h);
-<<<<<<< HEAD
         anim.SetBool("Aiming", aim);
-=======
->>>>>>> f37fe2fbc4a7cb406007ea90fbc37216ee2d7401
 
         Vector3 direction = new Vector3(h, 0, v);
         //useing the infomation from vector 3 to move the player
