@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39fd45374d9406646aac588f65446af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthscript: {fileID: 459133104}
+  healthscript: {fileID: 0}
   healthTxt: {fileID: 990354627}
   healthBar: {fileID: 992215057}
   scoreNum: {fileID: 535455038}
@@ -588,12 +588,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 447612833}
   m_CullTransparentMesh: 0
---- !u!114 &459133104 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114216729865092688, guid: 7d0f8743ec7251b40b9bc66023bb41dd,
-    type: 2}
-  m_PrefabInternal: {fileID: 1045013854}
-  m_Script: {fileID: 11500000, guid: 108a53631e8a9b24c921bc89e85f352d, type: 3}
 --- !u!1 &498525164
 GameObject:
   m_ObjectHideFlags: 0
@@ -1998,7 +1992,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4407826967876452, guid: 7d0f8743ec7251b40b9bc66023bb41dd, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 4.617
+      value: 4.603
       objectReference: {fileID: 0}
     - target: {fileID: 4407826967876452, guid: 7d0f8743ec7251b40b9bc66023bb41dd, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2020,6 +2014,24 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4781183239039376, guid: 7d0f8743ec7251b40b9bc66023bb41dd, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4041638332708516, guid: 7d0f8743ec7251b40b9bc66023bb41dd, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4707501748836336, guid: 7d0f8743ec7251b40b9bc66023bb41dd, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114850854449232298, guid: 7d0f8743ec7251b40b9bc66023bb41dd,
+        type: 2}
+      propertyPath: BloodSplat
+      value: 
+      objectReference: {fileID: 1476952084781964, guid: 4fae5dbd729854f4e88c9cdd227356e2,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d0f8743ec7251b40b9bc66023bb41dd, type: 2}
   m_IsPrefabAsset: 0
@@ -2194,7 +2206,7 @@ GameObject:
   - component: {fileID: 1282336155}
   - component: {fileID: 1282336154}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: ParticlesGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2208,7 +2220,7 @@ Transform:
   m_GameObject: {fileID: 1282336152}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.127, z: 0.288}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 1251996166}
   m_RootOrder: 9
@@ -2277,7 +2289,7 @@ ParticleSystem:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1282336152}
   serializedVersion: 5
-  lengthInSec: 0.1
+  lengthInSec: 0.5
   simulationSpeed: 1
   stopAction: 0
   looping: 0
@@ -2349,7 +2361,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.05
+      scalar: 0.1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -2402,7 +2414,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -2518,7 +2530,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3043,7 +3055,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 3
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -7407,6 +7419,10 @@ Prefab:
     - target: {fileID: 4185168952991828, guid: 69e69fd981bdd594c8daf1fc8d9297ab, type: 2}
       propertyPath: m_LocalPosition.y
       value: 1.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 1870185153432876, guid: 69e69fd981bdd594c8daf1fc8d9297ab, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69e69fd981bdd594c8daf1fc8d9297ab, type: 2}

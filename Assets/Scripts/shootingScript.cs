@@ -7,6 +7,9 @@ public class shootingScript : MonoBehaviour {
     [SerializeField] int damageDelt = 20;
     [SerializeField] LayerMask layerMask;
     Animator anim;
+    [SerializeField] GameObject BloodSplat;
+
+    
 
 
 	// Use this for initialization
@@ -29,7 +32,7 @@ public class shootingScript : MonoBehaviour {
             //if it has then make the curser visible and unlock it.
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-
+            print(transform.position);
 
         } //checking that the fire button that is configured in unity has been pressed
         if (Input.GetButtonDown("Fire1"))
@@ -46,17 +49,23 @@ public class shootingScript : MonoBehaviour {
             RaycastHit hitInfo;
             //the 100 indicates the distance the raycast will shoot adding ~ layermask makes the ray objects in thes layer
             anim.SetTrigger("FIre");
+
+
+
                 if(Physics.Raycast (mouseRay, out hitInfo,100, layerMask))
             {
                 print("Hit: " + hitInfo.collider.name);
                 //send the raycast and if the raycast hit something, print out the name to console
-                Debug.DrawLine(transform.position, hitInfo.point, Color.red, 5.0f);
+                //Debug.DrawLine(transform.position+new Vector3(0,1,0), hitInfo.point, Color.red, 5.0f);
                 Health enemyHealth = hitInfo.transform.GetComponent<Health>();
                 //if the raycast hit a enermie the the damage fuction will be caled and damage will be delt.
                 if (enemyHealth != null)
                 {
                     print("Damaged");
                     enemyHealth.Damage(damageDelt);
+                    Vector3 bloodHitPos = hitInfo.point;
+                    Quaternion bloodHitRot = Quaternion.FromToRotation(Vector3.forward, hitInfo.normal);
+                    Instantiate(BloodSplat, bloodHitPos,bloodHitRot);
                 }
             }
         }

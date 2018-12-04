@@ -10,6 +10,7 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] float attackDelay = 1.0f;
     //How long betwine attacks and the damage is delt
     [SerializeField] int damageDelt = 5;
+    [SerializeField] GameObject BloodSplat;
 
     void OnTriggerStay(Collider other) //when an object is in the trigger this is called
     {
@@ -23,6 +24,14 @@ public class EnemyAttack : MonoBehaviour
             anim.SetTrigger("Attack");
             playerHealth.Damage(damageDelt); //calling damage fuction
             nextTimeAttackIsAllowed = Time.time + attackDelay; //upadate the time in which the next attack can be used
+
+            //holding the direction of the hit as a vector 3 by takeing the direction of the enemy and the position that it was hit
+            Vector3 hitDirection = (transform.root.position - other.transform.position).normalized;
+            //takes the direction of what we hitand then ds a small amount direction away
+            Vector3 hitEffectPos = other.transform.position + (hitDirection * 0.01f) + (Vector3.up * 1.5f);
+           //working ouut the dieection in which 
+            Quaternion hitEffectRotation = Quaternion.FromToRotation(Vector3.forward, hitDirection);
+            Instantiate(BloodSplat, hitEffectPos, hitEffectRotation);
         }
         
     }
