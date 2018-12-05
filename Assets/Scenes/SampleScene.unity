@@ -7424,6 +7424,12 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114801711271490974, guid: 69e69fd981bdd594c8daf1fc8d9297ab,
+        type: 2}
+      propertyPath: BloodSplat
+      value: 
+      objectReference: {fileID: 1476952084781964, guid: 4fae5dbd729854f4e88c9cdd227356e2,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69e69fd981bdd594c8daf1fc8d9297ab, type: 2}
   m_IsPrefabAsset: 0

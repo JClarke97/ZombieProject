@@ -10,7 +10,7 @@ public class Enemy<T> where T : Enemy
     Transform playerModel;
     CharacterController controller;
 
-    [SerializeField] float movespeed = 5.0f;
+    
 
     public Enemy(string name)
     {
@@ -20,8 +20,20 @@ public class Enemy<T> where T : Enemy
 }
 public abstract class Enemy : MonoBehaviour
 {
-    public EnemyMovement
-    
-}*/
+    [SerializeField] float movespeed = 5.0f;
+    Transform playerModel;
+    CharacterController controller;
+
+    //
+    private void Awake()
+    {
+        GameObject playerGameObject = GameObject.FindGameObjectWithTag("Player");
+        //finding the game object that has the tag player
+
+        playerModel = playerGameObject.transform;
+        controller = GetComponent<CharacterController>();
+    }
+
+} 
 
     

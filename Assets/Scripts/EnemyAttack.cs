@@ -31,6 +31,7 @@ public class EnemyAttack : MonoBehaviour
             Vector3 hitEffectPos = other.transform.position + (hitDirection * 0.01f) + (Vector3.up * 1.5f);
            //working ouut the dieection in which 
             Quaternion hitEffectRotation = Quaternion.FromToRotation(Vector3.forward, hitDirection);
+
             Instantiate(BloodSplat, hitEffectPos, hitEffectRotation);
         }
         
