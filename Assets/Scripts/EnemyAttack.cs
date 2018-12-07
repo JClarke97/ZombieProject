@@ -12,6 +12,7 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] int damageDelt = 5;
     [SerializeField] GameObject BloodSplat;
 
+
     void OnTriggerStay(Collider other) //when an object is in the trigger this is called
     {
         

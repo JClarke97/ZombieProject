@@ -19,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
     public float v;
     private bool aim;
 
+    AudioSource audioSrc;
+    [SerializeField] AudioClip JumpClip;
+
     Animator anim;
 
     // Use this for initialization
@@ -60,6 +63,8 @@ public class PlayerMovement : MonoBehaviour
 
                 anim.SetTrigger("Jump");
                 yVelocity = jumpSpeed;
+                audioSrc.clip = JumpClip;
+                audioSrc.Play();
             }
         }
         else

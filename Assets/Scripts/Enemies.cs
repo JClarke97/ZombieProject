@@ -34,6 +34,6 @@ public abstract class Enemy : MonoBehaviour
         controller = GetComponent<CharacterController>();
     }
 
-} 
+} */
 
     

@@ -17,7 +17,7 @@ public class EnemyNavAnimations : MonoBehaviour {
 	void Update () {
 
         //printing the speed of the nave mesh agent for debugging purposes
-        print(agent.velocity.magnitude);
+
         //if ther is still a agent atached then we give the animator the speed of the agent
         if (agent)
         {

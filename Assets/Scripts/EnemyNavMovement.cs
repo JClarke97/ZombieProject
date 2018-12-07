@@ -23,7 +23,7 @@ public class EnemyNavMovement : MonoBehaviour {
 
         //seting the destination as the player so a path will be calculated.
         agent.SetDestination(target.position);
-        if(agent.remainingDistance<(agent.stoppingDistance+0.5f))
+        if(agent.remainingDistance<(agent.stoppingDistance+1.5f))
             {
             transform.LookAt(target.transform);
         }

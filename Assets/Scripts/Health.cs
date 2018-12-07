@@ -10,6 +10,9 @@ public class Health : MonoBehaviour
 
     [SerializeField] int CurrentHealth = 0;
 
+    AudioSource audioSrc;
+    [SerializeField] AudioClip deathsound;
+
     Animator anim;
 
     // Use this for initialization
@@ -18,6 +21,8 @@ public class Health : MonoBehaviour
         anim = GetComponent<Animator>();
         CurrentHealth = maximumHealth;
         // setting the current health the same as max health at the start of the game
+        audioSrc = GetComponent<AudioSource>();
+
     }
 
     public bool IsDead { get { return CurrentHealth <= 0; } }
@@ -46,6 +51,8 @@ public class Health : MonoBehaviour
             {
                 //seting the boolen for dead as true if the Enemey health is 0
                 anim.SetBool("Dead", true);
+                audioSrc.clip = deathsound;
+                audioSrc.Play();
             }
             //destroying all the components atached to the enemy
             UIManager.updateScore(50);
@@ -55,7 +62,7 @@ public class Health : MonoBehaviour
             Destroy(GetComponentInChildren<EnemyAttack>());
 
             GameManager.amountkilled++;
-
+            
             
 
         }

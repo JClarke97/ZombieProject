@@ -8,6 +8,9 @@ public class shootingScript : MonoBehaviour {
     [SerializeField] LayerMask layerMask;
     Animator anim;
     [SerializeField] GameObject BloodSplat;
+    //creting a reffrence to audio source and a audio cip variable that will hold the audio clip
+     AudioSource audioSrc;
+    [SerializeField] AudioClip shootclip;
 
     
 
@@ -16,6 +19,8 @@ public class shootingScript : MonoBehaviour {
 	void Start ()
     {
         anim = GetComponent<Animator>();
+        //making the audio source  equl that of the audio sourc component
+        audioSrc = GetComponent<AudioSource>();
         Cursor.lockState = CursorLockMode.Locked; 
         Cursor.visible = false; //hiding the curser by turning its visability to false
         // |=  adds a ignoraycast layer to out layermask list.
@@ -49,6 +54,9 @@ public class shootingScript : MonoBehaviour {
             RaycastHit hitInfo;
             //the 100 indicates the distance the raycast will shoot adding ~ layermask makes the ray objects in thes layer
             anim.SetTrigger("FIre");
+            //makeing the audio source clip equil the shoot clip and then play.
+            audioSrc.clip = shootclip;
+            audioSrc.Play();
 
 
 
