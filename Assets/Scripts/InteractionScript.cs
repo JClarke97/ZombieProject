@@ -14,7 +14,7 @@ public class InteractionScript : MonoBehaviour {
     {
         //when the presses the F key a raycast will shoot form the center of there screen.
 		if (Input.GetKeyDown(KeyCode.F))
-        { Ray mouseRay = GetComponent<Camera>().ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        { Ray mouseRay = GetComponentInChildren<Camera>().ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
             //geting the infomation from the raycast
             RaycastHit hitInfo;
             

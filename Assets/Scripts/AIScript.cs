@@ -29,12 +29,13 @@ public class AIScript : MonoBehaviour
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         //creating reffrences to the player pick ups and waypoints
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        healthpoint = GameObject.FindGameObjectWithTag("pick Up").transform;
+        healthpoint = GameObject.FindGameObjectWithTag("pick up").transform;
         points = GameObject.FindGameObjectsWithTag("Waypoint");
     }
-    void update()
+    void Update()
     {
-        if (Health.GetHealth() <25)
+        print(Vector3.Distance(transform.position, player.position));
+        if (health.GetHealth() <25)
         {
             currBehaviour = Behaviours.Heal;
         }
@@ -64,29 +65,34 @@ public class AIScript : MonoBehaviour
         // this is means if hte enemies is close to the player it will start attacing them.
         if (Vector3.Distance(transform.position, player.position) < findDistance)
         {
+
+            print("patrol to combat");
             currBehaviour = Behaviours.Combat;
         }
         //seting the destinationif the NPC is 0.5 units away from the player.
+        
 
-        else if (agent.remainingDistance < 0.5f)
+        else if (agent.remainingDistance < 1.1f)
         {
             if (points.Length ==0)
             {
                 return;
             }
+            agent.SetDestination(points[destPoint].transform.position);
+            destPoint = (destPoint + 1) % points.Length;
         }
     }
     void RunCombatState()
     {
         //checking to see is if the player further that the caseing distace value away form toe NPC
         //If it has then revett back to patroling.
-        if (Vector3.Distance(transform.position, PlayerMovement.position) > chaseDistance)
+        if (Vector3.Distance(transform.position, player.position) > chaseDistance)
         {
             currBehaviour = Behaviours.patrol;
         }
         else
         {
-            agent.SetDestination(PlayerMovement.position);
+            agent.SetDestination(player.position);
         }
     }
     void RunHealstate()

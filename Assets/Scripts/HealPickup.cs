@@ -10,7 +10,7 @@ public class HealPickup : MonoBehaviour {
         print("pick up");
         //if the the object that colided with the health pick up has a player tag 
         //then get the players health script and check to see if ther is one and add health
-        if (collider.CompareTag("Player"))
+        if (collider.gameObject)
         {
             //colider.GetComponent gets the health script from the player not the pickup
             Health health = collider.GetComponent<Health>();

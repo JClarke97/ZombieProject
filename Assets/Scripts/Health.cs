@@ -47,19 +47,24 @@ public class Health : MonoBehaviour
         {
             //if the objects is not nuseing the player tag then add 50 to the players score and destroy the game object
             if (gameObject.tag != "player") //POSIBLE IDEA if (gameObject.tag == "Enemy1")
-                
+
             {
                 //seting the boolen for dead as true if the Enemey health is 0
                 anim.SetBool("Dead", true);
                 audioSrc.clip = deathsound;
                 audioSrc.Play();
+                GetComponent<UnityEngine.AI.NavMeshAgent>().isStopped = true;
             }
             //destroying all the components atached to the enemy
             UIManager.updateScore(50);
+
+           
             Destroy(GetComponent<EnemyNavMovement>());
             Destroy(GetComponent<UnityEngine.AI.NavMeshAgent>());
             Destroy(GetComponent<CharacterController>());
             Destroy(GetComponentInChildren<EnemyAttack>());
+            Destroy(GetComponent<AIScript>());
+        }
 
             GameManager.amountkilled++;
             
@@ -68,4 +73,4 @@ public class Health : MonoBehaviour
         }
 
     }
-}
+
