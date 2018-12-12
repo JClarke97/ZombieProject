@@ -24,7 +24,7 @@ public abstract class Enemy : MonoBehaviour
     Transform playerModel;
     CharacterController controller;
 
-    //
+    
     private void Awake()
     {
         GameObject playerGameObject = GameObject.FindGameObjectWithTag("Player");
@@ -34,6 +34,6 @@ public abstract class Enemy : MonoBehaviour
         controller = GetComponent<CharacterController>();
     }
 
-} */
+}
 
-    
+   */ 
