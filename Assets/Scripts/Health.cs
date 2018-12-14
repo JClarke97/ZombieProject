@@ -15,14 +15,27 @@ public class Health : MonoBehaviour
 
     Animator anim;
 
+    public Renderer rend;
+
     // Use this for initialization
     void Start()
     {
         anim = GetComponent<Animator>();
-        CurrentHealth = maximumHealth;
         // setting the current health the same as max health at the start of the game
+        CurrentHealth = maximumHealth;
+        rend = GetComponentInChildren<Renderer>();
         audioSrc = GetComponent<AudioSource>();
+        rend = GetComponentInChildren<Renderer>();
 
+    }
+    void Update()
+    {
+        print(rend.isVisible);
+        //if enemy is dead then and the rendere is not visible destory the enemy
+        if(IsDead&&!rend.isVisible)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public bool IsDead { get { return CurrentHealth <= 0; } }

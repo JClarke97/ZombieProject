@@ -7430,9 +7430,9 @@ MonoBehaviour:
   - {fileID: 1081364702174078, guid: 81dd5d050384f12479cc93bee61cbedb, type: 2}
   spawnValues: {x: 5, y: 0, z: 3}
   spawnWait: 0
-  spawnMostWait: 5
-  spawnLeastWait: 0.5
-  startWait: 1
+  spawnMostWait: 12
+  spawnLeastWait: 4
+  startWait: 10
   stop: 0
 --- !u!4 &1538815079
 Transform:
@@ -7463,7 +7463,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1597917687
 AudioListener:
   m_ObjectHideFlags: 0
@@ -8585,6 +8585,10 @@ Prefab:
     - target: {fileID: 139918, guid: 6f72acf8db58876478830a2b18caec5d, type: 2}
       propertyPath: m_NavMeshLayer
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 152502, guid: 6f72acf8db58876478830a2b18caec5d, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f72acf8db58876478830a2b18caec5d, type: 2}
