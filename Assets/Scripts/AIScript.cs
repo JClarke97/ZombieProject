@@ -34,7 +34,7 @@ public class AIScript : MonoBehaviour
     }
     void Update()
     {
-        print(Vector3.Distance(transform.position, player.position));
+        //print(Vector3.Distance(transform.position, player.position));
         if (health.GetHealth() <25)
         {
             currBehaviour = Behaviours.Heal;

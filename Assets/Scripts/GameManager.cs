@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
     public Text playerHealthTxt;
     public Text timeTxt;
     public static int amountkilled;
+    private bool won;
 
     // Use this for initialization
     void Start() { 
@@ -21,6 +22,12 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        //If the player has survived 180 seconds then the they win
+        if (Time.timeSinceLevelLoad > 180)
+        {
+            won = true;
+        }
 		
 	}
 }
