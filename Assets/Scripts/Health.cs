@@ -8,7 +8,7 @@ public class Health : MonoBehaviour
     [SerializeField] int maximumHealth = 100;
     //seting a maximum health variable as 100 which can be changed in the inspector
 
-    [SerializeField] int CurrentHealth = 0;
+    [SerializeField] private int CurrentHealth = 0;
 
     AudioSource audioSrc;
     [SerializeField] AudioClip deathsound;
@@ -35,6 +35,17 @@ public class Health : MonoBehaviour
         if(IsDead&&!rend.isVisible)
         {
             Destroy(gameObject);
+        }
+    }
+
+    public string currenthealth
+    {
+        get { return currentHealth; }
+        set {
+            if (value < 100)
+            {
+                CurrentHealth = 100;
+            }
         }
     }
 
