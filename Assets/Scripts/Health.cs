@@ -30,7 +30,7 @@ public class Health : MonoBehaviour
     }
     void Update()
     {
-        print(rend.isVisible);
+        //print(rend.isVisible);
         //if enemy is dead then and the rendere is not visible destory the enemy
         if(IsDead&&!rend.isVisible)
         {
@@ -38,16 +38,16 @@ public class Health : MonoBehaviour
         }
     }
 
-    public string currenthealth
-    {
-        get { return currentHealth; }
-        set {
-            if (value < 100)
-            {
-                CurrentHealth = 100;
-            }
-        }
-    }
+  //  public string currenthealth
+ //   {
+  //      get { return currentHealth; }
+   //     set {
+     //       if (value < 100)
+      //      {
+       //         CurrentHealth = 100;
+        //    }
+     //   }
+    //}
 
     public bool IsDead { get { return CurrentHealth <= 0; } }
     //using IsDead to get the result of the code current health <=0

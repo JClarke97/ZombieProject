@@ -55,7 +55,9 @@ public class basicMovement : MonoBehaviour {
             yVelocity -= gravity;
         }
         velocity.y = yVelocity;
-        velocity = transform.InverseTransformDirection(velocity);
+        velocity = transform.TransformDirection(velocity);
         varController.Move(velocity * Time.deltaTime);
-	}
+
+
+    }
 }

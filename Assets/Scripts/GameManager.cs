@@ -11,14 +11,20 @@ public class GameManager : MonoBehaviour {
     public Text playerHealthTxt;
     public Text timeTxt;
     public static int amountkilled;
-    private bool won;
-
+    public bool won;
+    //creating a reffrence to the winpanel and loespannel
+    public GameObject losePanel;
+    public GameObject winPanel;
     // Use this for initialization
-    void Start() { 
-
+    void Start() {
+        winPanel.SetActive(false);
+        
         
 
-	}
+
+
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -27,7 +33,20 @@ public class GameManager : MonoBehaviour {
         if (Time.timeSinceLevelLoad > 180)
         {
             won = true;
+            
+
         }
-		
-	}
+        if(won == true)
+        {
+            winPanel.SetActive(true);
+        }
+        
+
+
+
+
+
+
+
+    }
 }

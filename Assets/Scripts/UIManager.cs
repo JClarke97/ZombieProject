@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
 
     public Text scoreNum;
     public Text timeNum;
+    public GameObject losePanel;
     //haveing the score varible be  be a static variable means that only one copy of it exists
     //
     public static int score;
@@ -54,7 +55,7 @@ public class UIManager : MonoBehaviour
         scoreNum.text = score + "";
         if(healthscript.IsDead)
         {
-            
+            losePanel.SetActive(true);
            // losePanel.SetActive(true); // ask simon!
             Time.timeScale = 0;
 

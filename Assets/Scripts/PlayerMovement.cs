@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] AudioClip JumpClip;
 
     Animator anim;
+    public int playerNum=1;
 
     // Use this for initialization
     void Start()
@@ -39,10 +40,10 @@ public class PlayerMovement : MonoBehaviour
     {
 
 
-        h = Input.GetAxis("Horizontal");
+        h = -Input.GetAxis("Horizontal"+playerNum);
         //when the h or v key is held down then it will get the Horizontal and vertical Axis
 
-        v = Input.GetAxis("Vertical");
+        v = -Input.GetAxis("Vertical"+ playerNum);
 
         //sending the animator infomation about  the soeed and direction of the player
         anim.SetFloat("Speed", v);
