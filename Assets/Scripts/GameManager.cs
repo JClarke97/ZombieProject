@@ -10,14 +10,22 @@ public class GameManager : MonoBehaviour {
     public Text score;
     public Text playerHealthTxt;
     public Text timeTxt;
-    public static int amountkilled;
+
     public bool won;
+    
     //creating a reffrence to the winpanel and loespannel
     public GameObject losePanel;
     public GameObject winPanel;
+
+    public static int amountkilled;
+
+
+
+
     // Use this for initialization
     void Start() {
         winPanel.SetActive(false);
+        amountkilled = 0;
         
         
 
@@ -33,13 +41,19 @@ public class GameManager : MonoBehaviour {
         if (Time.timeSinceLevelLoad > 180)
         {
             won = true;
-            
+            door.enabled = true;
 
         }
         if(won == true)
         {
             winPanel.SetActive(true);
+        
         }
+        else if (amountkilled > 30)
+        {
+            
+        }
+
         
 
 

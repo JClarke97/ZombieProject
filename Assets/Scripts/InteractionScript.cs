@@ -12,6 +12,7 @@ public class InteractionScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+ 
         //when the presses the F key a raycast will shoot form the center of there screen.
 		if (Input.GetKeyDown(KeyCode.F))
         { Ray mouseRay = GetComponentInChildren<Camera>().ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
@@ -26,6 +27,7 @@ public class InteractionScript : MonoBehaviour {
                 {
                     door.enabled = true;
                 }
+               
             }
         }
 	}
