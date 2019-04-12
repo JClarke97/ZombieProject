@@ -8,8 +8,12 @@ public class DoorOpenScript : MonoBehaviour {
     {
         //seting the transform position of the object to equal to new vector 3
         //which has the values of were the dorr currently is plus 3 on the 7 direction toi rise the door
-        this.transform.position =
-            new Vector3(transform.position.x, transform.position.y + 3, transform.position.z);
+       
+    }
+
+    private void Start()
+    {
+        StartCoroutine("OpenDelay");
     }
     private void OnDisable()
     {
@@ -17,13 +21,12 @@ public class DoorOpenScript : MonoBehaviour {
             new Vector3(transform.position.x, transform.position.y - 3, transform.position.z);
     }
 
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    IEnumerator OpenDelay()
+    {
+        yield return new WaitForSeconds(5);
+
+        this.transform.position =
+           new Vector3(transform.position.x, transform.position.y + 3, transform.position.z);
+    }
+
 }

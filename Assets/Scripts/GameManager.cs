@@ -37,13 +37,14 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        //If the player has survived 180 seconds then the they win
-        if (Time.timeSinceLevelLoad > 180)
+            //If the player has survived 180 seconds then the they win
+            if (Time.timeSinceLevelLoad >30)
         {
             won = true;
-            door.enabled = true;
+           
 
         }
+
         if(won == true)
         {
             winPanel.SetActive(true);
