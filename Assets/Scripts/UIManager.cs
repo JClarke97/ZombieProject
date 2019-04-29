@@ -26,8 +26,7 @@ public class UIManager : MonoBehaviour
         GameManager manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         healthBar = manager.playerHealth;
         healthTxt = manager.playerHealthTxt;
-        scoreNum = manager.score;
-        timeNum = manager.timeTxt;
+
 
         
         //seting the max health value of the health bar by useing the max health variable from the health script
@@ -51,8 +50,8 @@ public class UIManager : MonoBehaviour
     {
         healthBar.value = healthscript.GetHealth();
         healthTxt.text = "Health: " + healthscript.GetHealth();
-        timeNum.text = "" + (int)Time.time;
-        scoreNum.text = score + "";
+        timeNum.text = "Time" + (int)Time.time;
+        scoreNum.text = "Score: " + score + "";
         if(healthscript.IsDead)
         {
             losePanel.SetActive(true);

@@ -100,7 +100,7 @@ public class AIScript : MonoBehaviour
     {
         //seting the destination to the health pick up 
         agent.SetDestination(healthpoint.position);
-        //if the NPC is on the health pick up then return to patroling 
+        //if the NPC is on the health pack then pick up then return to patroling 
         if (agent.remainingDistance <0.1f)
         {
             currBehaviour = Behaviours.patrol;
